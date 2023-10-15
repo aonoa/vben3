@@ -51,7 +51,7 @@ function dynamicImport(
 ) {
   const keys = Object.keys(dynamicViewsModules)
   const matchKeys = keys.filter((key) => {
-    const k = key.replace('/src', '')
+    const k = key.replace('/src/pages', '')
     const startFlag = component.startsWith('/')
     const endFlag = component.endsWith('.vue') || component.endsWith('.tsx')
     const startIndex = startFlag ? 0 : 1
@@ -186,7 +186,7 @@ function isMultipleRoute(routeModule: RouteRecordItem) {
 export function filterRouterTree<T = any>(
   tree: T[],
   func: (n: T) => boolean,
-  flat: boolean = true,
+  flat = true,
 ): RouteRecordItem[] {
   let t = filterTree(tree, func).filter(func) as RouteRecordItem[]
   if (flat) {

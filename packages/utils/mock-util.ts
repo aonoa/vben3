@@ -59,4 +59,4 @@ export const pagination = <T = any>(
 // This function is used to obtain the token from the request data, please modify it according to the actual situation of the project
 export const getRequestToken = ({
   headers,
-}: requestParams): string | undefined => headers?.authorization
+}: requestParams): string | undefined => headers?.authorization?.split(' ')[1]
